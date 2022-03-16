@@ -89,6 +89,11 @@ if($calculado > $sistema){
                 <input type="number" step="0.01" id="disponivel" name="disponivel" value="<?=$disponivel;?>" readonly>
             </div>
         </fieldset>
+        
+        <div class="buttons">
+            <button type="submit" class="button">Calcular</button>
+        </div>
+        
         <fieldset class="fields">
             <legend>Dispêndios</legend>
             <div class="field">
@@ -123,9 +128,6 @@ if($calculado > $sistema){
                 <input type="number" step="0.01" id="diferenca_despesa" name="diferenca_despesa" value="<?=$diferenca_despesa;?>" readonly>
             </div>
         </fieldset>
-        <div class="buttons">
-            <button type="submit" class="button">Calcular</button>
-        </div>
     </form>
     
 </main>

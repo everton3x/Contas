@@ -328,7 +328,7 @@ function periodo_resumo(string $periodo): array {
     
     $resumo['resultado_anterior'] = resultado_anterior($periodo);
     $resumo['resultado_periodo'] = round($resumo['receita'] - $resumo['despesa'], 2);
-    $resumo['resultado_acumulado'] = round($resumo['resultado_anterior'] + $resumo['resultado_periodo']);
+    $resumo['resultado_acumulado'] = round($resumo['resultado_anterior'] + $resumo['resultado_periodo'], 2);
     
     return $resumo;
 }
