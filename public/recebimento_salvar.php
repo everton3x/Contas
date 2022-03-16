@@ -5,7 +5,7 @@ require_once '../app/periodo.php';
 require_once '../app/receita.php';
 require_once '../app/valor.php';
 
-print_r($_POST);
+//print_r($_POST);
 
 if (key_exists('receita', $_POST)) {
     $cod = $_POST['receita'];
