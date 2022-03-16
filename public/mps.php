@@ -20,7 +20,6 @@ $data = mps_resumo();
         <tr>
             <th>Meio de pagamento</th>
             <th>Gasto</th>
-            <th>Saldo</th>
         </tr>
     </thead>
     <tbody>
