@@ -44,7 +44,7 @@ $receita = receita_detalhes($cod);
             </div>
             <div class="field">
                 <label for="valor">Valor</label>
-                <input type="number" id="valor" name="valor" required min="0.01" step="0.01" value="<?=$receita['valor'];?>">
+                <input type="number" id="valor" name="valor" required min="0.00" step="0.01" value="<?=$receita['valor'];?>">
             </div>
             <div class="field">
                 <label for="vencimento">Vencimento</label>

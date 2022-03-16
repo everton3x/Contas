@@ -30,7 +30,7 @@ if (key_exists('devedor', $_POST) && strlen($_POST['devedor']) > 0) {
     trigger_error("Devedor não informada.", E_USER_ERROR);
 }
 
-if (key_exists('valor', $_POST) && $_POST['valor'] > 0) {
+if (key_exists('valor', $_POST)) {
     $valor = $_POST['valor'];
 } else {
     trigger_error("Valor não informado.", E_USER_ERROR);
