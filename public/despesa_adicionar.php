@@ -18,7 +18,7 @@
             <legend class="title">Despesa</legend>
             <div class="field">
                 <label for="periodo">Período</label>
-                <input type="month" id="periodo" name="periodo" required autofocus>
+                <input type="month" id="periodo" name="periodo" required autofocus value="<?=date('Y-m');?>">
             </div>
             <div class="field">
                 <label for="descricao">Descrição</label>
