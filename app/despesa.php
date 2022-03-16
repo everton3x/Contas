@@ -145,6 +145,8 @@ function despesa_detalhes(int $cod): array {
 }
 
 function despesa_apagar(int $cod): void {
+    $detalhes = despesa_detalhes($cod);
+    $periodo = int2periodo($detalhes['periodo']);
     periodo_permite_lancamento($periodo);
     
     $dbh = connect();
