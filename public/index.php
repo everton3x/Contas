@@ -141,8 +141,9 @@ $despesas = despesas_periodo($periodo);
 <?php
 $resultadoPeriodo = round($totalReceita - $totalDespesa, 2);
 $resultadoAnterior = resultado_anterior($periodo);
+//echo "<h1>$resultadoAnterior</h1>";
 if(periodo_aberto($periodo)){
-    if($resultadoAnterior < 0){
+    if($resultadoAnterior > 0){
         $resultadoAnterior = 0.0;
     }
 }
