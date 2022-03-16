@@ -36,7 +36,7 @@ trigger_error("Número de repetições não informado.", E_USER_ERROR);
 <nav class="breadcrumb">
     <a class="item" href="index.php">Início</a>
     <a class="item" href="despesas.php">Despesas</a>
-    <a class="item" href="javascript:history.back();">Repetir</a>
+    <a class="item" href="despesa_repetir.php">Repetir</a>
     <a class="item">Salvar</a>
 </nav>
 
