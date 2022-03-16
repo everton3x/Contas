@@ -9,27 +9,27 @@ require_once '../app/valor.php';
 //exit();
 
 if (key_exists('periodo', $_POST)) {
-$periodo = $_POST['periodo'];
+    $periodo = $_POST['periodo'];
 } else {
-trigger_error("Período não informado.", E_USER_ERROR);
+    trigger_error("Período não informado.", E_USER_ERROR);
 }
 
 if (key_exists('descricao', $_POST) && strlen($_POST['descricao']) > 0) {
-$descricao = $_POST['descricao'];
+    $descricao = $_POST['descricao'];
 } else {
-trigger_error("Descrição não informada.", E_USER_ERROR);
+    trigger_error("Descrição não informada.", E_USER_ERROR);
 }
 
 if (key_exists('valor', $_POST) && $_POST['valor'] > 0) {
-$valor = $_POST['valor'];
+    $valor = $_POST['valor'];
 } else {
-trigger_error("Valor não informado.", E_USER_ERROR);
+    trigger_error("Valor não informado.", E_USER_ERROR);
 }
 
 if (key_exists('repetir', $_POST)) {
-$repetir = $_POST['repetir'];
+    $repetir = $_POST['repetir'];
 } else {
-trigger_error("Número de repetições não informado.", E_USER_ERROR);
+    trigger_error("Número de repetições não informado.", E_USER_ERROR);
 }
 ?>
 
@@ -44,29 +44,30 @@ trigger_error("Número de repetições não informado.", E_USER_ERROR);
     <?php
     for ($i = 1; $i <= $repetir; $i++):
         $cod = despesa_adicionar($periodo, $descricao, $valor);
+        $periodo = periodo_posterior($periodo);
         $despesa = despesa_detalhes($cod);
-    ?>
-    <table class="table">
-        <tbody>
-            <tr>
-                <td>Código</td>
-                <td><?= $despesa['cod']; ?></td>
-            </tr>
-            <tr>
-                <td>Período</td>
-                <td><?= format_periodo(int2periodo($despesa['periodo'])); ?></td>
-            </tr>
-            <tr>
-                <td>Descrição</td>
-                <td><?= $despesa['descricao']; ?></td>
-            </tr>
-            <tr>
-                <td>Valor</td>
-                <td><?= currency($despesa['valor']); ?></td>
-            </tr>
-        </tbody>
-    </table>
-    <?php endfor;?>
+        ?>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Código</td>
+                    <td><?= $despesa['cod']; ?></td>
+                </tr>
+                <tr>
+                    <td>Período</td>
+                    <td><?= format_periodo(int2periodo($despesa['periodo'])); ?></td>
+                </tr>
+                <tr>
+                    <td>Descrição</td>
+                    <td><?= $despesa['descricao']; ?></td>
+                </tr>
+                <tr>
+                    <td>Valor</td>
+                    <td><?= currency($despesa['valor']); ?></td>
+                </tr>
+            </tbody>
+        </table>
+    <?php endfor; ?>
 </main>
 
 
