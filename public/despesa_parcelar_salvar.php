@@ -80,7 +80,7 @@ $cod = despesa_parcelar($periodo, $descricao, $credor, $valor, $vencimento, $agr
 <nav class="breadcrumb">
     <a class="item" href="index.php">Início</a>
     <a class="item" href="despesas.php">Despesas</a>
-    <a class="item" href="javascript:history.back();">Parcelar</a>
+    <a class="item" href="despesa_parcelar.php">Parcelar</a>
     <a class="item">Conferir</a>
 </nav>
 
