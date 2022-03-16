@@ -17,7 +17,7 @@ require_once '../app/localizador.php';
             <legend class="title">Receita</legend>
             <div class="field">
                 <label for="periodo">Período</label>
-                <input type="month" id="periodo" name="periodo" required autofocus value="<?=date(Y-m);?>">
+                <input type="month" id="periodo" name="periodo" required autofocus value="<?=date('Y-m');?>">
             </div>
             <div class="field">
                 <label for="descricao">Descrição</label>
