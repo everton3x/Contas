@@ -56,16 +56,16 @@ if (key_exists('localizador', $_POST)) {
     $localizador = '';
 }
 
-if (key_exists('vencimento', $_POST)) {
+if (key_exists('vencimento', $_POST) && strlen($_POST['vencimento']) > 0) {
     $vencimento = $_POST['vencimento'];
 } else {
     $vencimento = '0000-00-00';
 }
 
-if (key_exists('pagar', $_POST)) {
+if (key_exists('pagar', $_POST) && strlen($_POST['pagar']) > 0) {
     $pagoem = $gastoem;
 } else {
-    $pagoem = '';
+    $pagoem = '0000-00-00';
 }
 
 if (key_exists('observacao_pgto', $_POST)) {
