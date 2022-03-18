@@ -247,7 +247,7 @@ function receita_atualizar_valor(int $receita, $novoValor): void {
  */
 function receitas_periodo(string $periodo): array {
     $dbh = connect();
-    $stmt = $dbh->prepare('SELECT * FROM receitas WHERE periodo = :periodo;');
+    $stmt = $dbh->prepare('SELECT * FROM receitas WHERE periodo = :periodo ORDER BY descricao ASC;');
     $data = [
         ':periodo' => periodo2int($periodo)
     ];

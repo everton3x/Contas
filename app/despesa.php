@@ -295,7 +295,7 @@ function pagar(int $cod, string $pagoem, string $observacao_pgto): void {
  */
 function despesas_periodo(string $periodo): array {
     $dbh = connect();
-    $stmt = $dbh->prepare('SELECT * FROM despesas WHERE periodo = :periodo;');
+    $stmt = $dbh->prepare('SELECT * FROM despesas WHERE periodo = :periodo ORDER BY descricao ASC;');
     $data = [
         ':periodo' => periodo2int($periodo)
     ];
