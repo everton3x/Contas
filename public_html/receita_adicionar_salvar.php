@@ -31,10 +31,10 @@ if (key_exists('valor', $_POST) && $_POST['valor'] > 0) {
     trigger_error("Valor não informado.", E_USER_ERROR);
 }
 
-if (key_exists('vencimento', $_POST)) {
+if (key_exists('vencimento', $_POST) && strlen($_POST['vencimento']) > 0) {
     $vencimento = $_POST['vencimento'];
 } else {
-    $vencimento = '';
+    $vencimento = '0000-00-00';
 }
 
 if (key_exists('agrupador', $_POST)) {
