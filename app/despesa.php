@@ -313,7 +313,12 @@ function despesa_parcelar(array $periodos, string $descricao, string $credor, ar
     $nvezes = sizeof($periodos);
     for($i = 1; $i <= $nvezes; $i++){
         $cod[$i] = despesa_adicionar($periodos[$i], "$descricao ($i/$nvezes)", $valores[$i]);
-        gastar($cod[$i], $gastoem, "$descricao ($i/$nvezes)", $valores[$i], $credor, $mp, $localizador, $agrupador, $localizador, '', '');
+        if($vencimentos[$i] == ''){
+            $vencimento = '0000-00-00';
+        }else{
+            $vencimento = $vencimentos[$i];
+        }
+        gastar($cod[$i], $gastoem, "$descricao ($i/$nvezes)", $valores[$i], $credor, $mp, $vencimento, $agrupador, $localizador, '0000-00-00', '');
     }
     return $cod;
 }

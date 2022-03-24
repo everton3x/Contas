@@ -59,7 +59,7 @@ if (key_exists('credor', $_POST)) {
 if (key_exists('vencimento', $_POST)) {
     $vencimento = $_POST['vencimento'];
 } else {
-    $vencimento = '';
+    $vencimento = [];
 }
 
 if (key_exists('agrupador', $_POST)) {
