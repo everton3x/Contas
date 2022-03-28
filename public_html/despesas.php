@@ -14,6 +14,12 @@ $valorFinal = $_GET['valorFinal'] ?? PHP_INT_MAX;
 $despesas = despesas_listar($periodoInicial, $periodoFinal, $descricao, $valorInicial, $valorFinal);
 //$despesas = [];
 //print_r($receitas);
+
+$totalPrevisto = 0.0;
+$totalGasto = 0.0;
+$totalAGastar = 0.0;
+$totalPago = 0.0;
+$totalAPagar = 0.0;
 ?>
 
 <nav class="breadcrumb">
@@ -84,14 +90,19 @@ $despesas = despesas_listar($periodoInicial, $periodoFinal, $descricao, $valorIn
         <tbody>
             <?php foreach ($despesas as $item): ?>
                 <?php
-                    $gasto = total_gasto($item['cod']);
-                    $agastar = $item['valor'] - $gasto;
-                    $pago = total_pago($item['cod']);
-                    $apagar = $gasto - $pago;
+                $gasto = total_gasto($item['cod']);
+                $agastar = $item['valor'] - $gasto;
+                $pago = total_pago($item['cod']);
+                $apagar = $gasto - $pago;
+                $totalPrevisto += $item['valor'];
+                $totalGasto += $gasto;
+                $totalAGastar += $agastar;
+                $totalPago += $pago;
+                $totalAPagar += $apagar;
                 ?>
                 <tr>
                     <td>
-                        <input type="radio" name="despesa" form="processar_despesa" value="<?=$item['cod'];?>">
+                        <input type="radio" name="despesa" form="processar_despesa" value="<?= $item['cod']; ?>">
                     </td>
                     <td style="text-align: right"><?= $item['cod']; ?></td>
                     <td style="text-align: right"><?= format_periodo(int2periodo($item['periodo'])); ?></td>
@@ -100,33 +111,37 @@ $despesas = despesas_listar($periodoInicial, $periodoFinal, $descricao, $valorIn
                     </td>
                     <td style="text-align: right"><?= currency($item['valor']); ?></td>
                     <td style="text-align: right">
-                        <?= currency($gasto);?>
+                        <?= currency($gasto); ?>
                     </td>
                     <td style="text-align: right">
-                        <a href="gastar.php?despesa=<?= $item['cod']; ?>"><?= currency($agastar);?></a>
+                        <a href="gastar.php?despesa=<?= $item['cod']; ?>"><?= currency($agastar); ?></a>
                     </td>
                     <td style="text-align: right">
-                        <?= currency($pago);?>
+                        <?= currency($pago); ?>
                     </td>
                     <td style="text-align: right">
-                        <?= currency($apagar);?>
+                        <?= currency($apagar); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="11">
-                    <form id="processar_despesa" class="buttons">
-                        <button type="submit" class="button primary" formaction="gastar.php" formmethod="GET">Gastar</button>
-                        <button type="submit" class="button" formaction="despesa_detalhes.php" formmethod="GET">Detalhes</button>
-                        <button type="submit" class="button" formaction="despesa_editar.php" formmethod="GET">Editar</button>
-                        <button type="submit" class="button error" formaction="despesa_apagar.php" formmethod="GET">Apagar</button>
-                    </form>
-                </td>
+                <th colspan="4">Total</th>
+                <th style="text-align: right;"><?=currency($totalPrevisto);?></th>
+                <th style="text-align: right;"><?=currency($totalGasto);?></th>
+                <th style="text-align: right;"><?=currency($totalAGastar);?></th>
+                <th style="text-align: right;"><?=currency($totalPago);?></th>
+                <th style="text-align: right;"><?=currency($totalAPagar);?></th>
             </tr>
         </tfoot>
     </table>
+    <form id="processar_despesa" class="buttons">
+        <button type="submit" class="button primary" formaction="gastar.php" formmethod="GET">Gastar</button>
+        <button type="submit" class="button" formaction="despesa_detalhes.php" formmethod="GET">Detalhes</button>
+        <button type="submit" class="button" formaction="despesa_editar.php" formmethod="GET">Editar</button>
+        <button type="submit" class="button error" formaction="despesa_apagar.php" formmethod="GET">Apagar</button>
+    </form>
 </div>
 
 <?php require '../tpl/pagef.php'; ?>

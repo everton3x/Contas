@@ -30,6 +30,8 @@ $valorFinal = $_GET['valorFinal'] ?? PHP_INT_MAX;
 $gastos = gastos_filtrar($periodoInicial, $periodoFinal, $gastoemInicial, $gastoemFinal, $vencimentoInicial, $vencimentoFinal, $pagoemInicial, $pagoemFinal, $observacao, $observacao_pgto, $credor, $mp, $valorInicial, $valorFinal, $agrupador, $localizador);
 //print_r($gastos);
 //exit();
+$totalGasto = 0.0;
+$totalPago = 0.0;
 ?>
 
 <nav class="breadcrumb">
@@ -161,6 +163,12 @@ $gastos = gastos_filtrar($periodoInicial, $periodoFinal, $gastoemInicial, $gasto
         </thead>
         <tbody>
             <?php foreach ($gastos as $item): ?>
+            <?php
+            $totalGasto += $item['valor'];
+            if($item['pagoem'] != '0000-00-00'){
+                $totalPago += $item['valor'];
+            }
+            ?>
                 <tr>
                     <td>
                         <input type="radio" name="cod" form="processar_gasto" value="<?=$item['cod'];?>">
@@ -187,6 +195,16 @@ $gastos = gastos_filtrar($periodoInicial, $periodoFinal, $gastoemInicial, $gasto
                     <td><?= $item['observacao_pgto'];?></td>
                 </tr>
             <?php endforeach; ?>
+                <tr>
+                    <th colspan="7">
+                        Total gasto:
+                    </th>
+                    <th style="text-align: right;"><?=currency($totalGasto);?></th>
+                    <th colspan="4">Total pago:</th>
+                    <th style="text-align: right;"><?=currency($totalPago);?></th>
+                    <th>Total a pagar:</th>
+                    <th style="text-align: right;"><?=currency($totalGasto - $totalPago);?></th>
+                </tr>
         </tbody>
         <tfoot>
             <tr>
