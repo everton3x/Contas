@@ -7,11 +7,11 @@
  require_once '../app/agrupador.php';
  require_once '../app/mp.php';
  
- if(key_exists('despesa', $_GET)){
-     $despesa = $_GET['despesa'];
- }else{
-     trigger_error('Nenhuma despesa informada.', E_USER_ERROR);
- }
+// if(key_exists('despesa', $_GET)){
+//     $despesa = $_GET['despesa'];
+// }else{
+//     trigger_error('Nenhuma despesa informada.', E_USER_ERROR);
+// }
  
  if(key_exists('cod', $_GET)){
      $cod = $_GET['cod'];
@@ -19,14 +19,15 @@
      trigger_error('Nenhum gasto informado.', E_USER_ERROR);
  }
  
- $detalhes = despesa_detalhes($despesa);
  $gasto = gasto_detalhes($cod);
+ $despesa = $gasto['despesa'];
+ $detalhes = despesa_detalhes($despesa);
 ?>
 
 <nav class="breadcrumb">
     <a class="item" href="index.php">Início</a>
     <a class="item" href="despesas.php">Despesas</a>
-    <a class="item" href="despesa_detalhes.php?despesa=<?=$cod;?>">Despesa</a>
+    <a class="item" href="despesa_detalhes.php?despesa=<?=$despesa;?>">Despesa</a>
     <a class="item">Gasto</a>
     <a class="item">Editar</a>
 </nav>
