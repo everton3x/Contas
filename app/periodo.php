@@ -31,7 +31,7 @@ function int2periodo(int $periodo): string {
  * @return string MM/AAAA
  */
 function format_periodo(string $periodo): string {
-    $dt = date_create_from_format('Y-m', $periodo);
+    $dt = date_create_from_format('Y-m-d', "$periodo-15");
     return $dt->format('m/Y');
 }
 
@@ -116,6 +116,15 @@ function periodo_anterior(string $periodo): string {
     $dt = date_create_from_format('Y-m-d', "$periodo-15");
     $dt->sub($di);
     return $dt->format('Y-m');
+    /*$mes = substr($periodo, 5);
+    $ano = substr($periodo, 0, 4);
+    if($mes == 1){
+        $mes = 12;
+        $ano--;
+    }else{
+        $mes--;
+    }
+    return "$ano-$mes";*/
 }
 
 /**
