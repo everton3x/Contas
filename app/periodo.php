@@ -11,7 +11,7 @@ require_once '../app/receita.php';
  * @return int AAAAMM
  */
 function periodo2int(string $periodo): int {
-    $dt = date_create_from_format('Y-m', $periodo);
+    $dt = date_create_from_format('Y-m-d', $periodo.'-01');
     return (int) $dt->format('Ym');
 }
 
@@ -21,7 +21,7 @@ function periodo2int(string $periodo): int {
  * @return string AAAA-MM
  */
 function int2periodo(int $periodo): string {
-    $dt = date_create_from_format('Ym', $periodo);
+    $dt = date_create_from_format('Ymd', $periodo.'01');
     return $dt->format('Y-m');
 }
 
