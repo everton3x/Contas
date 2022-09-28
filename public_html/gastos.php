@@ -145,7 +145,7 @@ $totalPago = 0.0;
         <thead>
             <tr>
                 <th>*</th>
-                <th>?</th>
+                <!--<th>?</th>-->
                 <th>Cód</th>
                 <th>Período</th>
                 <th>Descrição</th>
@@ -173,11 +173,11 @@ $totalPago = 0.0;
                     <td>
                         <input type="radio" name="cod" form="processar_gasto" value="<?=$item['cod'];?>">
                     </td>
-                    <td>
+<!--                    <td>
                         <?php if($item['pagoem'] === '0000-00-00'):?>
                             <input type="checkbox" name="cod[<?=$item['cod'];?>]" form="pagar_varios" value="<?=$item['cod'];?>">
                         <?php endif;?>
-                    </td>
+                    </td>-->
                     <td style="text-align: right"><?= $item['cod']; ?></td>
                     <td style="text-align: right"><?= format_periodo(int2periodo($item['periodo'])); ?></td>
                     <td>
@@ -185,7 +185,12 @@ $totalPago = 0.0;
                     </td>
                     <td><?= format_date($item['gastoem']);?></td>
                     <td><?= $item['observacao'];?></td>
-                    <td style="text-align: right"><?= currency($item['valor']); ?></td>
+                    <td style="text-align: right">
+                        <?= currency($item['valor']); ?>
+                        <?php if($item['pagoem'] === '0000-00-00'):?>
+                            <input type="checkbox" name="cod[<?=$item['cod'];?>]" form="pagar_varios" value="<?=$item['cod'];?>">
+                        <?php endif;?>
+                    </td>
                     <td><?= $item['credor'];?></td>
                     <td><?= $item['mp'];?></td>
                     <td><?= format_date($item['vencimento']);?></td>
