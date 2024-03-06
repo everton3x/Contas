@@ -1,8 +1,10 @@
 <?php
 
 require_once 'db.php';
-require_once '../app/despesa.php';
-require_once '../app/receita.php';
+//require_once '../app/despesa.php';
+//require_once '../app/receita.php';
+require_once 'despesa.php';
+require_once 'receita.php';
 
 /**
  * Converte AAAA-MM para AAAAMM

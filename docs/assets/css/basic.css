@@ -1,0 +1,366 @@
+:root {
+    --tc: #333333; /* text color */
+    --bgc: #f2f2f2; /* background color */
+    --dc: #0059b3; /* destak color */
+    --dac: #0073e6; /* destak alternative color */
+    --ec: #990000; /* error color */
+    --eac: #b30000; /* error alternative color */
+    --sc: #009900; /* success color */
+    --sac: #006600; /* success alternative color */
+    --wc: #ff9900; /* warning color */
+    --wac: #cc7a00; /* warning alternative color */
+}
+
+body {
+    color: var(--tc);
+    font-family: sans-serif;
+    background-color: var(--bgc);
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--tc);
+    font-style: normal;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.item {
+    font-style: normal;
+}
+
+.navbar {
+    background-color: var(--bgc);
+    margin: 0;
+    padding: 0.2em;
+    text-align: center;
+}
+
+.navbar > .item {
+    color: var(--tc);
+    line-height: 2em;
+    border: solid 0.15em var(--tc);
+    padding: 0.2em;
+    margin: 0.2em;
+    min-width: 5em;
+    display: inline-block;
+    text-align: center;
+}
+
+.navbar > .item:hover {
+    color: var(--bgc);
+    background-color: var(--tc);
+}
+
+.container {
+    margin: 1em;
+    padding: 0;
+    border: none;
+}
+
+.menu {
+    border: double 0.25em var(--tc);
+    padding: 0.2em;
+    margin: 0.2em;
+}
+
+.menu > .item {
+    display: block;
+    margin: 0.2em;
+    padding: 0.2em;
+}
+
+.menu > .item:hover {
+    background-color: var(--tc);
+    color: var(--bgc);
+}
+
+.panel {
+    border: double 0.25em var(--tc);
+    padding: 0.2em;
+    margin: 1em;
+}
+
+.title {
+    font-weight: bold;
+    background-color: var(--tc);
+    color: var(--bgc);
+    margin: 0;
+    margin-bottom: 0.2em;
+    padding: 0.2em;
+}
+
+.breadcrumb {
+    margin: 1em;
+    font-style: italic;
+    border-top: solid 0.15em var(--tc);
+    border-bottom: solid 0.15em var(--tc);
+    padding: 0.5em;
+}
+
+.breadcrumb > .item::before {
+    content: " / ";
+}
+
+.breadcrumb > .item[href]:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb > .item:first-child::before {
+    content: "";
+}
+
+.breadcrumb > .item:last-child {
+    font-weight: bold;
+}
+
+.breadcrumb > a.item:last-child:hover {
+    text-decoration: none;
+}
+
+.fields {
+    border: solid 0.15em var(--tc);
+    padding: 1em;
+    margin: 1em;
+}
+
+.fields > .title {
+    background-color: transparent;
+    color: var(--tc);
+    font-weight: bold;
+}
+
+.field {
+    display: block;
+    margin: 0.5em;
+}
+
+.field > label {
+    display: block;
+    font-size: 0.8em;
+}
+
+.field > input {
+    border: solid 0.1em var(--tc);
+    background-color: transparent;
+    color: var(--tc);
+}
+
+.field > input[type=number],
+.field > input[type=date],
+.field > input[type=month] {
+    text-align: right;
+}
+
+.field > input:focus {
+    border: solid 0.1em var(--tc);
+    background-color: var(--tc);
+    color: var(--bgc);
+}
+
+.field > input:focus::placeholder {
+    color: var(--bgc);
+}
+
+.buttons {
+    border: solid 0.15em var(--tc);
+    padding: 1em;
+}
+
+.noborder {
+    border: none;
+}
+
+.button {
+    background: transparent;
+    border: solid 0.15em var(--tc);
+    padding: 0.5em;
+    min-width: 5em;
+    color: var(--tc);
+}
+
+.button.primary {
+    background-color: var(--dc);
+    border: solid 0.15em var(--dc);
+    color: var(--bgc);
+    font-weight: bold;
+}
+
+.button.error {
+    background-color: var(--ec);
+    border: solid 0.15em var(--ec);
+    color: var(--bgc);
+}
+
+.button.error:hover {
+    background-color: var(--eac);
+    border: solid 0.15em var(--eac);
+    color: var(--tc);
+}
+
+.button:hover {
+    background-color: var(--tc);
+    border: solid 0.15em var(--tc);
+    color: var(--bgc);
+}
+
+.button.primary:hover {
+    background-color: var(--dac);
+    border: solid 0.15em var(--dac);
+    color: var(--tc);
+}
+
+.table {
+    border: double 0.25em var(--tc);
+    margin: 0.2em;
+}
+
+.table > tbody > tr > td {
+    border-bottom: solid 0.15em var(--tc);
+}
+
+.table > tbody > tr:last-child > td {
+    border-bottom: none;
+}
+
+.table > thead > tr > th,
+.table > tfoot > tr > th {
+    font-weight: bold;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td {
+    border-bottom: double 0.25em var(--tc);
+}
+
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+    border-top: double 0.25em var(--tc);
+}
+
+.table > caption {
+    border-top: double 0.25em var(--tc);
+    border-left: double 0.25em var(--tc);
+    border-right: double 0.25em var(--tc);
+    font-weight: bold;
+    padding: 0.2em;
+}
+
+.text.align.right {
+    text-align: right;
+}
+
+.text.align.left {
+    text-align: left;
+}
+
+.text.align.center {
+    text-align: center;
+}
+
+.text.align.justify {
+    text-align: justify;
+}
+
+.message {
+    border: solid 0.25em var(--tc);
+    margin: 1em;
+    padding: 0.2em;
+}
+
+.message > .title {
+    margin: 0;
+}
+
+.message.info {
+    background-color: var(--dac);
+    border-color: var(--dc);
+    color: var(--bgc);
+}
+
+.message.info > .title {
+    background-color: var(--dc);
+}
+
+.message.success {
+    background-color: var(--sc);
+    border-color: var(--sac);
+    color: var(--bgc);
+}
+
+.message.success> .title {
+    background-color: var(--sac);
+}
+
+.message.warn,
+.message.warning {
+    background-color: var(--wc);
+    border-color: var(--wac);
+    color: var(--tc);
+}
+
+.message.warn > .title,
+.message.warning > .title {
+    background-color: var(--wac);
+}
+
+.message.error {
+    background-color: var(--ec);
+    border-color: var(--eac);
+    color: var(--bgc);
+}
+
+.message.error> .title {
+    background-color: var(--eac);
+}
+
+.pager {
+    text-align: center;
+    border: double 0.25em var(--tc);
+    padding: 1em;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin: 0.2em;
+    display: inline-block;
+}
+
+.pager > .item {
+    margin: 1em;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0.2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    height: 3em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.pager > .item:hover {
+    background-color: var(--tc);
+    color: var(--bgc);
+}
+
+.checkbox {
+    
+}
+
+.checkbox > input {
+    
+}
+
+.checkbox > label {
+    
+}
+
+.negative {
+    color: var(--eac)
+}
+
+.positive {
+    color: var(--sac)
+}

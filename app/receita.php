@@ -221,7 +221,7 @@ function total_recebido(int $receita): float {
 //    $stmt->debugDumpParams();
     $data = $stmt->fetch();
     if($data === false) return  0.0;
-    return round($data['total'], 2);
+    return round((float) $data['total'], 2);
 }
 
 function receita_atualizar_valor(int $receita, $novoValor): void {
