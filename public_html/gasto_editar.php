@@ -40,11 +40,11 @@
             <legend class="title">Despesa</legend>
             <div class="field">
                 <label for="periodo">Período</label>
-                <input type="month" id="periodo" name="periodo" value="<?= int2periodo($detalhes['periodo']);?>">
+                <input type="month" id="periodo" name="periodo" readonly value="<?= int2periodo($detalhes['periodo']);?>">
             </div>
             <div class="field">
                 <label for="descricao">Descrição</label>
-                <input type="text" id="descricao" name="descricao" value="<?=$detalhes['descricao'];?>">
+                <input type="text" id="descricao" name="descricao" readonly value="<?=$detalhes['descricao'];?>">
             </div>
         </fieldset>
         <fieldset class="fields">

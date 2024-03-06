@@ -142,11 +142,15 @@ $despesas = despesas_periodo($periodo);
 $resultadoPeriodo = round($totalReceita - $totalDespesa, 2);
 $resultadoAnterior = resultado_anterior($periodo);
 //echo "<h1>$resultadoAnterior</h1>";
-if(periodo_aberto($periodo)){
+//echo "<h1>$periodo</h1>";
+//var_dump(periodo_aberto($periodo));
+//if(periodo_aberto($periodo)){
+if(periodo_aberto($anterior)){
     if($resultadoAnterior > 0){
         $resultadoAnterior = 0.0;
     }
 }
+//echo "<h1>$resultadoAnterior</h1>";
 $resultadoAcumulado = round($resultadoPeriodo + $resultadoAnterior, 2);
 
 ?>

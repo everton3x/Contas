@@ -207,7 +207,7 @@ function total_gasto(int $despesa): float {
 //    $stmt->debugDumpParams();
     $data = $stmt->fetch();
     if($data === false) return  0.0;
-    return round($data['total'], 2);
+    return round((float) $data['total'], 2);
 }
 
 function total_pago(int $despesa): float {
